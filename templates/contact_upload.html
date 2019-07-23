@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Upload</title>
+</head>
+<body style="padding-top: 30px; padding-left: 30px">
+
+<!-- Displaying the message at the top of the page -->
+{% if messages %}
+    {% for message in messages %}
+        <span style="color:red">
+                    ** {{ message }}
+                </span>
+    {% endfor %}
+    <hr>
+{% endif %}
+
+<!-- Data order in csv file -->
+<div>
+    {{ order }}
+</div>
+
+<!-- Upload Form -->
+
+<h3>Upload Form</h3>
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="file">Upload a file</label>
+    <input type="file" name="file" id="file" required>
+    <br> <br>
+    <button type="submit">Upload</button>
+</form>
+
+</body>
+</html>
